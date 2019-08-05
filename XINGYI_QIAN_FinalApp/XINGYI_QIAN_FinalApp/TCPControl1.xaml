@@ -1,0 +1,66 @@
+﻿<UserControl
+    x:Class="XINGYI_QIAN_FinalApp.TCPControl1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XINGYI_QIAN_FinalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid x:Name="tcpGrid"  Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row="0" Width="150" Height="50" Text="TCP CONNECT" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" FontStyle="Italic"/>
+        <AppBarButton x:Name="getBtn" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Icon="Refresh" Click="getBtn_Click" />
+        <Grid x:Name="getGrid" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Width="150" Height="30" Text="Original String:"/>
+            <TextBlock x:Name="getText" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="3"  Width="150" Height="30" TextWrapping="WrapWholeWords" ScrollViewer.VerticalScrollMode="Auto"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Width="150" Height="30" Text="Temperature:"/>
+            <TextBlock x:Name="tempText" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3"  Width="150" Height="30"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Width="50" Text="Port1:"/>
+            <TextBlock x:Name="port1Text" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  Width="100" Height="30"/>
+            <TextBlock Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Width="50" Height="30" Text="Port2:"/>
+            <TextBlock x:Name="port2Text" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"  Width="100" Height="30"/>
+            <TextBlock Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Width="150" Height="30" Text="Accelerometer:"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="1" Width="50" Height="30" Text="X:"/>
+            <TextBlock x:Name="xText" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="1"  Width="50" Height="30"/>
+            <TextBlock Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="1" Width="50" Height="30" Text="Y:"/>
+            <TextBlock x:Name="yText" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="1"  Width="50" Height="30"/>
+            <TextBlock Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="1" Width="50" Height="30" Text="Z:"/>
+            <TextBlock x:Name="zText" Grid.Column="5" Grid.Row="4" Grid.ColumnSpan="1"  Width="50" Height="30"/>
+
+        </Grid>
+
+        <Button x:Name="sendBtn" Content="SEND DATA" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" Width="150" HorizontalAlignment="Center" Click="sendBtn_Click"/>
+        <Button x:Name="continueBtn" Content="REPEATER MODE" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Width="150" HorizontalAlignment="Center" Click="continueBtn_Click"/>
+        <TextBlock x:Name="showText" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"  Width="Auto" Height="Auto" TextWrapping="WrapWholeWords" ScrollViewer.VerticalScrollMode="Auto"/>
+    </Grid>
+</UserControl>

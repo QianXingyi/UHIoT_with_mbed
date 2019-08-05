@@ -1,0 +1,101 @@
+﻿<Page
+    x:Class="XINGYI_QIAN_FinalApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XINGYI_QIAN_FinalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Loaded="Page_Loaded" SizeChanged="Page_SizeChanged">
+
+
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="Background/Background.jpg" Opacity="0.6"/>
+        </Grid.Background>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Phone">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="360"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="mySplitView.(SplitView.Visibility)" Value="Collapsed"/>
+                        <Setter Target="comBar.(CommandBar.Visibility)" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Desktop">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="mySplitView.(SplitView.Visibility)" Value="Visible"/>
+                        <Setter Target="comBar.(CommandBar.Visibility)" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+
+        <CommandBar x:Name="comBar" Background="#FF007ACC" Foreground="White">
+
+            <AppBarButton Icon="Keyboard" Label="Mbed" Click="mbedClick" Foreground="White"/>
+            <AppBarButton x:Name="appButton" Icon="Link" Label="Pair" Click="linkClick" Foreground="White"/>
+            <AppBarButton Icon="World" Label="Got Data" Click="dataClick" Foreground="White"/>
+        </CommandBar>
+        <Grid x:Name="cmdBar" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <SplitView x:Name="mySplitView" CompactPaneLength="50" IsPaneOpen="False" OpenPaneLength="240" DisplayMode="CompactInline">
+            <SplitView.Pane>
+                <StackPanel Orientation="Vertical" Opacity="0.995">
+                    <StackPanel.Background>
+                        <SolidColorBrush Color="#FF007ACC"/>
+                    </StackPanel.Background>
+                    <AppBarButton x:Name="expandButton" Icon="AllApps" Click="expandButton_Click" Width="50" Height="50" Foreground="White"></AppBarButton>
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton Icon="Keyboard" Width="50" Height="50" Click="mbedClick_2" Foreground="White"/>
+                        <TextBlock Text="Mbed" VerticalAlignment="Center" Foreground="White"/>
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <AppBarButton Icon="Link" Width="50" Height="50" Click="linkClick_2" Foreground="White"/>
+                        <TextBlock Text="Transmit" VerticalAlignment="Center" Foreground="White"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+
+                <Grid x:Name="splBar" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+    </Grid>
+</Page>
